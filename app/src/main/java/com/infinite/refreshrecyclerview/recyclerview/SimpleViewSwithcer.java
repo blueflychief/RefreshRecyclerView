@@ -1,4 +1,4 @@
-package com.infinite.refreshrecyclerview.view;
+package com.infinite.refreshrecyclerview.recyclerview;
 
 import android.content.Context;
 import android.util.AttributeSet;

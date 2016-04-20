@@ -1,4 +1,4 @@
-package com.infinite.refreshrecyclerview.view;
+package com.infinite.refreshrecyclerview.recyclerview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -13,9 +13,10 @@ public class LoadingMoreFooter extends LinearLayout {
 
     private SimpleViewSwithcer progressCon;
     private Context mContext;
+    public final static int STATE_PRE_LOADING = -1;
     public final static int STATE_LOADING = 0;
     public final static int STATE_COMPLETE = 1;
-    public final static int STATE_NOMORE = 2;
+    public final static int STATE_NO_MORE = 2;
     private TextView mText;
 
     public LoadingMoreFooter(Context context) {
@@ -48,7 +49,6 @@ public class LoadingMoreFooter extends LinearLayout {
         mText.setText("正在加载...");
 
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(10, 0, 0, 0);
 
         mText.setLayoutParams(layoutParams);
         addView(mText);
@@ -59,15 +59,20 @@ public class LoadingMoreFooter extends LinearLayout {
         switch (state) {
             case STATE_LOADING:
                 progressCon.setVisibility(View.VISIBLE);
-                mText.setText("正在刷新");
+                mText.setText("正在加载...");
                 this.setVisibility(View.VISIBLE);
                 break;
             case STATE_COMPLETE:
-                mText.setText("正在刷新");
+                mText.setText("正在加载...");
                 this.setVisibility(View.GONE);
                 break;
-            case STATE_NOMORE:
+            case STATE_NO_MORE:
                 mText.setText("没有更多");
+                progressCon.setVisibility(View.GONE);
+                this.setVisibility(View.VISIBLE);
+                break;
+            case STATE_PRE_LOADING:
+                mText.setText("上拉加载更多");
                 progressCon.setVisibility(View.GONE);
                 this.setVisibility(View.VISIBLE);
                 break;

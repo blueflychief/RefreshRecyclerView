@@ -1,4 +1,4 @@
-package com.infinite.refreshrecyclerview.view;
+package com.infinite.refreshrecyclerview.recyclerview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -11,8 +11,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.infinite.refreshrecyclerview.R;
-import com.infinite.refreshrecyclerview.view.indicator.BallSpinFadeLoaderIndicator;
-import com.infinite.refreshrecyclerview.view.indicator.BaseIndicatorController;
 
 
 public class AVLoadingIndicatorView extends View{

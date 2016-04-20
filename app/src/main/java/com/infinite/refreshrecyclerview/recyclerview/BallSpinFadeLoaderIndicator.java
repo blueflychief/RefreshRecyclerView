@@ -1,4 +1,4 @@
-package com.infinite.refreshrecyclerview.view.indicator;
+package com.infinite.refreshrecyclerview.recyclerview;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;

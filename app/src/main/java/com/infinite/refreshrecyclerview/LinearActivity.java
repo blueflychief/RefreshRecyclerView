@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.infinite.refreshrecyclerview.view.XRecyclerView;
+import com.infinite.refreshrecyclerview.recyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 
@@ -26,11 +26,7 @@ public class LinearActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
-
-//        mRecyclerView.setRefreshProgressStyle(ProgressStyle.SysProgress);
-//        mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.SysProgress);
         mRecyclerView.setArrowImageView(R.mipmap.iconfont_downgrey);
-
         View header =   LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
         mRecyclerView.addHeaderView(header);
 
@@ -70,7 +66,8 @@ public class LinearActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             mAdapter.notifyDataSetChanged();
-                            mRecyclerView.noMoreLoading();
+                            mRecyclerView.setIsnomore(true);
+//                            mRecyclerView.noMoreLoading();
                         }
                     }, 1000);
                 }
